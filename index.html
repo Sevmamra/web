@@ -2,18 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My First Python-Powered Website</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Welcome App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p id="message">This message will be updated by JavaScript.</p>
-
-  <form action="https://web-ng9o.onrender.com/greet" method="post">
-    <input type="text" name="username" placeholder="Enter your name" required>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script src="script.js"></script>
+  <div class="container">
+    <h1 class="title">🌟 Welcome to My Website 🌟</h1>
+    <p class="subtitle">Fill the form below to get your personalized greeting!</p>
+    
+    <form action="/greet" method="post" class="form-box">
+      <input type="text" name="username" placeholder="Enter your name" required>
+      <input type="email" name="email" placeholder="Enter your email" required>
+      
+      <select name="role" required>
+        <option value="">-- Select Your Role --</option>
+        <option value="Student">Student</option>
+        <option value="Developer">Developer</option>
+        <option value="Fitness Enthusiast">Fitness Enthusiast</option>
+      </select>
+      
+      <button type="submit">✨ Get Greeting ✨</button>
+    </form>
+  </div>
+  
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
